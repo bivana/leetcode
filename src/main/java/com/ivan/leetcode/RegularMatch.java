@@ -55,44 +55,39 @@ public class RegularMatch {
     public static void main(String[] args){
         RegularMatch rm=new RegularMatch();
         Assert.assertEquals(false,rm.isMatch("aa","a"));
-        Assert.assertEquals(true,rm.isMatch("aa","a*"));
-        Assert.assertEquals(true,rm.isMatch("ab",".*"));
-        Assert.assertEquals(true,rm.isMatch("aab","c*a*b"));
-        Assert.assertEquals(false,rm.isMatch("mississippi","mis*is*p*"));
+//        Assert.assertEquals(true,rm.isMatch("aa","a*"));
+//        Assert.assertEquals(true,rm.isMatch("ab",".*"));
+//        Assert.assertEquals(true,rm.isMatch("aab","c*a*b"));
+//        Assert.assertEquals(false,rm.isMatch("mississippi","mis*is*p*"));
 
     }
 
-    enum Result {
-        TRUE, FALSE
-    }
-
-    Result[][] memo;
+    Boolean[][] memo;
 
     public boolean isMatch(String s, String p) {
-        memo = new Result[s.length() + 1][p.length() + 1];
+        memo=new Boolean[s.length()+1][p.length()+1];
         return dp(0, 0, s, p);
     }
 
-    public boolean dp(int i, int j, String text, String pattern) {
-        if (memo[i][j] != null) {
-            return memo[i][j] == Result.TRUE;
+    public boolean dp(int i,int j,String text,String pattern){
+        if(memo[i][j]!=null){
+            return memo[i][j];
         }
-        boolean ans;
-        if (j == pattern.length()){
-            ans = i == text.length();
-        } else{
-            boolean first_match = (i < text.length() &&
-                    (pattern.charAt(j) == text.charAt(i) ||
-                            pattern.charAt(j) == '.'));
-
-            if (j + 1 < pattern.length() && pattern.charAt(j+1) == '*'){
-                ans = (dp(i, j+2, text, pattern) ||
-                        first_match && dp(i+1, j, text, pattern));
-            } else {
-                ans = first_match && dp(i+1, j+1, text, pattern);
+        boolean result=false;
+        if(j==pattern.length()){
+            result=i==text.length();
+        }else {
+            boolean firstMatch=i<text.length() && (text.charAt(i)==pattern.charAt(j) || pattern.charAt(j)=='.');
+            if(j+1<pattern.length() && pattern.charAt(j+1)=='*'){
+                result=(dp(i,j+2,text,pattern) || (firstMatch && dp(i+1,j,text,pattern)));
+            }else{
+                result=firstMatch && dp(i+1,j+1,text,pattern);
             }
+
         }
-        memo[i][j] = ans ? Result.TRUE : Result.FALSE;
-        return ans;
+        memo[i][j]=result;
+        return result;
+
     }
+
 }
