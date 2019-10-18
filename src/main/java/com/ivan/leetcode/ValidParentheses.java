@@ -41,6 +41,8 @@ public class ValidParentheses {
 
     public static void main(String[] args){
         ValidParentheses validParentheses=new ValidParentheses();
+        Assert.assertEquals(false,validParentheses.isValid("(})"));
+
         Assert.assertEquals(false,validParentheses.isValid("}"));
         Assert.assertEquals(true,validParentheses.isValid("()"));
         Assert.assertEquals(true,validParentheses.isValid("()[]{}"));
@@ -55,18 +57,27 @@ public class ValidParentheses {
             if(c=='(' || c=='['||c=='{'){
                 list.add(c);
             }else if(c== ')' || c==']' || c=='}'){
+                if(list.size()==0){
+                    return false;
+                }
                 Character f=list.getLast();
-                if(c==')' && f=='('){
-                    if(f!=null){
+                if(c==')'){
+                    if(f=='('){
                         list.removeLast();
+                    }else{
+                        return false;
                     }
-                }else if(c=='}' &&f=='{'){
-                    if(f!=null){
+                }else if(c=='}'){
+                    if(f=='{'){
                         list.removeLast();
+                    }else{
+                        return false;
                     }
-                }else if(c==']' &&f=='['){
-                    if(f!=null){
+                }else if(c==']'){
+                    if(f=='['){
                         list.removeLast();
+                    }else{
+                        return false;
                     }
                 }
             }
