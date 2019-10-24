@@ -9,12 +9,12 @@ public class ListNode {
     ListNode next;
     ListNode(int x) { val = x; }
 
-    public static ListNode create(int num){
-        ListNode node=new ListNode(num);
-        for(int i=num-1;i>=1;i--){
-            ListNode l=new ListNode(i);
-            l.next=node;
-            node=l;
+    public static ListNode create(int i){
+        ListNode node=new ListNode(i);
+        for (i--;i>0;i--){
+            ListNode pre=new ListNode(i);
+            pre.next=node;
+            node=pre;
         }
         return node;
     }
