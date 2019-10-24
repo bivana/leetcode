@@ -36,9 +36,19 @@ public class ClimbingStairs {
         Assert.assertEquals(2,climbStairs(2));
         Assert.assertEquals(3,climbStairs(3));
         System.out.println(climbStairs(7));
+        System.out.println(climbStaritsUseFormat(7));
     }
 
     Integer[] dp;
+
+    /**
+     * 使用斐波那契公式
+     * */
+    public int climbStaritsUseFormat(int n){
+        double sqrt5=Math.sqrt(5);
+        int r=(int)((Math.pow((1+sqrt5)/2,n+1)-Math.pow((1-sqrt5)/2,n+1))/sqrt5);
+        return r;
+    }
 
     public int climbStairs(int n) {
         dp=new Integer[n];
