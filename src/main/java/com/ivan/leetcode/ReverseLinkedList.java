@@ -17,10 +17,38 @@ public class ReverseLinkedList {
 
     @Test
     public void test(){
-        
+        ListNode listNode=ListNode.create(5);
+        listNode=reverseList(listNode);
+        while (listNode!=null){
+            System.out.println(listNode.val);
+            listNode=listNode.next;
+        }
     }
 
+    /**
+     * 递归版本
+     * */
     public ListNode reverseList(ListNode head) {
-        return null;
+        if(head==null||head.next==null){
+            return head;
+        }
+        ListNode p=reverseList(head.next);
+        head.next.next=head;
+        head.next=null;
+        return p;
     }
+
+//    public ListNode reverseList(ListNode head) {
+//        ListNode fake=new ListNode(-1);
+//        fake.next=head;
+//        ListNode temp=fake.next;
+//        while (temp!=null && temp.next!=null){
+//            ListNode next=temp.next;
+//            temp.next=temp.next.next;
+//            next.next=fake.next;
+//            fake.next=next;
+//
+//        }
+//        return fake.next;
+//    }
 }
