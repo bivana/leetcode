@@ -1,5 +1,6 @@
 package com.ivan.leetcode;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -25,10 +26,21 @@ public class MaximumDepthOfBinaryTree {
 
     @Test
     public void test(){
+        TreeNode treeNode=new TreeNode(3);
+        TreeNode t9=new TreeNode(9);
+        treeNode.left=t9;
+        TreeNode t20=new TreeNode(20);
+        treeNode.right=t20;
+        t20.left=new TreeNode(15);
+        t20.right=new TreeNode(7);
+        Assert.assertEquals(3,maxDepth(treeNode));
 
     }
 
     public int maxDepth(TreeNode root) {
-        return 0;
+        if(root==null){
+            return 0;
+        }
+        return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
     }
 }
