@@ -18,4 +18,15 @@ public class ListNode {
         }
         return node;
     }
+
+    public static void show(ListNode listNode){
+        if(listNode!=null){
+            System.out.print(listNode.val);
+            if(listNode.next!=null){
+                System.out.print("==>");
+            }
+            show(listNode.next);
+        }
+
+    }
 }
