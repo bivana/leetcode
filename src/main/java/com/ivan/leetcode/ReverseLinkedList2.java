@@ -25,7 +25,6 @@ public class ReverseLinkedList2 {
     }
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
-        int count=0;
         ListNode fakeHead=new ListNode(0);
         fakeHead.next=head;
         ListNode pre=fakeHead;
