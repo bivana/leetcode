@@ -19,4 +19,13 @@ public class ShowUtil {
             System.out.println();
         }
     }
+
+    public static void showIntMatrix(int[][] matrix){
+        for(int[] is:matrix){
+            for(int i:is){
+                System.out.print(i+",");
+            }
+            System.out.println();
+        }
+    }
 }
