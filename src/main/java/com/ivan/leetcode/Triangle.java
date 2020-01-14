@@ -35,23 +35,54 @@ public class Triangle {
         list.add(Arrays.asList(new Integer[]{3,4}));
         list.add(Arrays.asList(new Integer[]{6,5,7}));
         list.add(Arrays.asList(new Integer[]{4,1,8,3}));
-        Assert.assertEquals(11,minimumTotal(list));
+        Assert.assertEquals(11,minimumTotal3(list));
     }
 
-    /**
-     * SUM(i,j)=p(i,j)+min(SUM(i-1,j),SUM(i-1,j-1))
-     * */
-    /**
-     * 递归写法
-     * */
-    public int minimumTotal(List<List<Integer>> triangle) {
-        if(triangle==null||triangle.size()==0){
-            return 0;
-        }
-        int[] min=new int[triangle.size()];
-        for(int i=triangle.size()-1;i>=0;i--){
-            
-        }
-        return 0;
+
+    /********************递归，自顶向下 【超时】********************************************************/
+    public int minimumTotal2(List<List<Integer>> triangle) {
+        return helper(0,0, triangle,triangle.size()-1);
     }
+
+    private int helper(int level,int index,List<List<Integer>> triangle,int endRow){
+        if(level==endRow){
+            return triangle.get(level).get(index);
+        }
+        int left=helper(level+1,index,triangle,endRow);
+        int right=helper(level+1,index+1,triangle,endRow);
+        return Math.min(left,right)+triangle.get(level).get(index);
+    }
+
+    /********************递归，自顶向下，动态规划 ********************************************************/
+    public int minimumTotal3(List<List<Integer>> triangle) {
+        Integer[][] memo=new Integer[triangle.size()][triangle.size()];
+        return helper(0,0, triangle,triangle.size()-1,memo);
+    }
+
+    private int helper(int level,int index,List<List<Integer>> triangle,int endRow,Integer[][] memo){
+        if(memo[level][index]!=null){
+            return memo[level][index];
+        }
+        if(level==endRow){
+            return triangle.get(level).get(index);
+        }
+        int left=helper(level+1,index,triangle,endRow);
+        int right=helper(level+1,index+1,triangle,endRow);
+        int i= Math.min(left,right)+triangle.get(level).get(index);
+        memo[level][index]=i;
+        return i;
+    }
+
+    /********************自底向上, DP 【AC】 ********************************************************/
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int row = triangle.size();
+        int[] minlen = new int[row+1];
+        for (int level = row-1;level>=0;level--){
+            for (int i = 0;i<=level;i++){   //第i行有i+1个数字
+                minlen[i] = Math.min(minlen[i], minlen[i+1]) + triangle.get(level).get(i);
+            }
+        }
+        return minlen[0];
+    }
+
 }
