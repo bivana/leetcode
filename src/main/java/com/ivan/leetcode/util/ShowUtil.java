@@ -1,6 +1,10 @@
 package com.ivan.leetcode.util;
 
+import com.ivan.leetcode.TreeNode;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class ShowUtil {
 
@@ -27,5 +31,19 @@ public class ShowUtil {
             }
             System.out.println();
         }
+    }
+
+    /**
+     * 显示数
+     * */
+    public static void showTreeNode(TreeNode treeNode) {
+        if(treeNode==null){
+            System.out.println(treeNode);
+            return;
+        }else{
+            System.out.println(treeNode.val);
+        }
+        showTreeNode(treeNode.left);
+        showTreeNode(treeNode.right);
     }
 }
