@@ -33,7 +33,67 @@ public class DivideTwoIntegers {
         Assert.assertEquals(-2,divide(7,-3));
     }
 
+    /**
+     * 备减法
+     * */
     public int divide(int dividend, int divisor) {
-        return 0;
+        if(dividend==Integer.MIN_VALUE && divisor==-1){//超出了
+            return Integer.MAX_VALUE;
+        }
+        int flag=1;//1表示正式，0 表示负数
+
+        //将dividend和divisor 变为负数，并记下正负号
+        if(dividend>0){
+            dividend=-dividend;
+        }else{
+            flag=-flag;
+        }
+        if(divisor>0){
+            divisor=-divisor;
+        }else{
+            flag=-flag;
+        }
+
+        int s=0;
+        while (dividend<=divisor){//因为都是负数，所以被除数要<=除数
+            int tmp=divisor;//一次减多少
+            int k=1;//一共有几层
+            while (dividend<=tmp+tmp && tmp+tmp<0){
+                tmp+=tmp;
+                k+=k;
+            }
+            dividend=dividend-tmp;
+            s=s+k;
+        }
+        return flag==1?s:-s;
     }
+
+//    public int divide(int dividend, int divisor) {
+//        if (dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;
+//
+//        int flag = 1; // 1 表示正数，-1表示负数；
+//        if (dividend > 0) {
+//            dividend = -dividend;
+//        } else {
+//            flag = -flag;
+//        }
+//        if (divisor > 0) {
+//            divisor = -divisor;
+//        } else {
+//            flag = -flag;
+//        }
+//
+//        int s = 0, tmpd, k;
+//        while (dividend <= divisor) {
+//            tmpd = divisor;
+//            k = 1;
+//            while (dividend <= tmpd + tmpd && tmpd + tmpd < 0) {
+//                tmpd += tmpd;
+//                k += k;
+//            }
+//            s = s + k;
+//            dividend -= tmpd;
+//        }
+//        return flag > 0 ? s : -s;
+//    }
 }
