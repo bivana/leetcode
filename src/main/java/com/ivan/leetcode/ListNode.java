@@ -5,8 +5,8 @@ package com.ivan.leetcode;
  * */
 public class ListNode {
 
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
     ListNode(int x) { val = x; }
 
     public static ListNode create(int i){
@@ -19,14 +19,5 @@ public class ListNode {
         return node;
     }
 
-    public static void show(ListNode listNode){
-        if(listNode!=null){
-            System.out.print(listNode.val);
-            if(listNode.next!=null){
-                System.out.print("==>");
-            }
-            show(listNode.next);
-        }
 
-    }
 }

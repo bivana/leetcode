@@ -1,5 +1,6 @@
 package com.ivan.leetcode;
 
+import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 
 /**
@@ -30,7 +31,7 @@ public class RemoveLinkedListElements {
         l5.next=l6;
         l6.next=l7;
         ListNode rs=removeElements(l1,6);
-        ListNode.show(rs);
+        ShowUtil.showListNode(rs);
     }
 
     public ListNode removeElements(ListNode head, int val) {

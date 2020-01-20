@@ -1,5 +1,6 @@
 package com.ivan.leetcode;
 
+import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 
 /**
@@ -21,7 +22,7 @@ public class ReverseLinkedList2 {
     public void test(){
         ListNode listNode=ListNode.create(5);
         ListNode rs=reverseBetween(listNode,0,3);
-        ListNode.show(rs);
+        ShowUtil.showListNode(rs);
     }
 
     public ListNode reverseBetween(ListNode head, int m, int n) {

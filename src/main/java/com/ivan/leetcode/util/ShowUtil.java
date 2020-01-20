@@ -1,5 +1,6 @@
 package com.ivan.leetcode.util;
 
+import com.ivan.leetcode.ListNode;
 import com.ivan.leetcode.TreeNode;
 
 import java.util.ArrayList;
@@ -45,5 +46,16 @@ public class ShowUtil {
         }
         showTreeNode(treeNode.left);
         showTreeNode(treeNode.right);
+    }
+
+    public static void showListNode(ListNode listNode){
+        if(listNode!=null){
+            System.out.print(listNode.val);
+            if(listNode.next!=null){
+                System.out.print("==>");
+            }
+            showListNode(listNode.next);
+        }
+
     }
 }

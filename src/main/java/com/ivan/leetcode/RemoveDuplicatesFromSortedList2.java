@@ -1,5 +1,6 @@
 package com.ivan.leetcode;
 
+import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 
 /**
@@ -34,7 +35,7 @@ public class RemoveDuplicatesFromSortedList2 {
         l5.next=l6;
         l6.next=l7;
         ListNode rs=deleteDuplicates(l1);
-        ListNode.show(l1);
+        ShowUtil.showListNode(l1);
         System.out.println();
 
         ListNode b1=new ListNode(1);
@@ -47,7 +48,7 @@ public class RemoveDuplicatesFromSortedList2 {
         b3.next=b4;
         b4.next=b5;
         ListNode rs2=deleteDuplicates(b1);
-        ListNode.show(rs2);
+        ShowUtil.showListNode(rs2);
     }
 
     public ListNode deleteDuplicates(ListNode head) {

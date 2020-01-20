@@ -1,5 +1,6 @@
 package com.ivan.leetcode;
 
+import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 
 /**
@@ -79,7 +80,7 @@ public class IntersectionOfTwoLinkedLists {
         b5.next=b6;
 
         ListNode rs=getIntersectionNode(a1,b1);
-        ListNode.show(rs);
+        ShowUtil.showListNode(rs);
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {

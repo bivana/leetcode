@@ -1,5 +1,6 @@
 package com.ivan.leetcode;
 
+import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 
 /**
@@ -30,7 +31,7 @@ public class RotateList {
     public void test(){
         ListNode listNode=ListNode.create(5);
         ListNode rs=rotateRight(listNode,2);
-        ListNode.show(rs);
+        ShowUtil.showListNode(rs);
         System.out.println();
 
         ListNode l1=new ListNode(0);
@@ -39,7 +40,7 @@ public class RotateList {
         l1.next=l2;
         l2.next=l3;
         ListNode rs2=rotateRight(l1,4);
-        ListNode.show(rs2);
+        ShowUtil.showListNode(rs2);
     }
 
     public ListNode rotateRight(ListNode head, int k) {
