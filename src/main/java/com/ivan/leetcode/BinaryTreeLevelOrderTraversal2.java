@@ -57,7 +57,7 @@ public class BinaryTreeLevelOrderTraversal2 {
             return;
         }
         if(list.size()<=level){
-            List<Integer> l=new ArrayList<>();
+            List<Integer> l=new ArrayList<Integer>();
             list.add(l);
         }
         list.get(level).add(treeNode.val);
