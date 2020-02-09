@@ -25,6 +25,17 @@ public class ShowUtil {
         }
     }
 
+    public static void showStringListMatrix(List<List<String>> list){
+        for(List<String> l:list){
+            for(String i:l){
+                System.out.print(i+",");
+            }
+            System.out.println();
+        }
+    }
+
+
+
     public static void showIntMatrix(int[][] matrix){
         for(int[] is:matrix){
             for(int i:is){
