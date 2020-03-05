@@ -19,5 +19,19 @@ public class ListNode {
         return node;
     }
 
+    public static ListNode create(int[] nums){
+        if(nums==null|| nums.length==0){
+            return null;
+        }
+        ListNode head=new ListNode(nums[0]);
+        ListNode pre=head;
+        for(int i=1;i<nums.length;i++){
+            ListNode listNode=new ListNode(nums[i]);
+            pre.next=listNode;
+            pre=listNode;
+        }
+        return head;
+    }
+
 
 }
