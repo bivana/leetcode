@@ -31,7 +31,24 @@ public class LongestPalindrome {
 
     }
 
+    /**
+     *
+     * */
     public int longestPalindrome(String s) {
+        if(s==null||s.length()<=0){
+            return 0;
+        }
+        int[] temp=new int[58];
+        for(char c:s.toCharArray()){
+            temp[c-'A']+=1;
+        }
+        int ans=0;
+        for(int i:temp){
+            if(i!=0){
+                ans+=i-(i&1);
+            }
 
+        }
+        return ans<s.length()?ans+1:ans;
     }
 }
