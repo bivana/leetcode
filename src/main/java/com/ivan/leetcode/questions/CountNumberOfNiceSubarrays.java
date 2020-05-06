@@ -3,6 +3,9 @@ package com.ivan.leetcode.questions;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 1248. 统计「优美子数组」
  * 给你一个整数数组 nums 和一个整数 k。
@@ -45,36 +48,46 @@ public class CountNumberOfNiceSubarrays {
 
     }
 
-    public int numberOfSubarrays(int[] nums, int k) {
+    public int numberOfSubarrays2(int[] nums, int k) {
         if(nums==null||nums.length<k){
             return 0;
         }
-        int start=0;
-        int odd=0;
-        int end=0;
+        List<Integer> list=new ArrayList<>();
+        list.add(-1);
         for(int i=0;i<nums.length;i++){
             if((nums[i]&1)==1){
-                odd++;
-                if(odd==k){
-                    end=i;
-                    break;
-                }
+                list.add(i);
             }
+        }
+        list.add(nums.length);
+        if(list.size()<k+2){
+            return 0;
         }
         int sum=0;
-        while (end>start&&end<nums.length){
-            sum++;
-            if((nums[start]&1)==0){
-                start++;
-            }else{
-                while (++end<nums.length && (nums[end]&1)==0){
-                    sum++;
-                }
-                if(end<nums.length){
-                    start++;
-                }
-            }
+        int start=1;
+        int end=k;
+        while (end<list.size()-1){
+            sum+=(list.get(start)-list.get(start-1))*(list.get(end+1)-list.get(end));
+            end++;
+            start++;
         }
         return sum;
+    }
+
+    public int numberOfSubarrays(int[] nums, int k) {
+        // 数组 prefixCnt 的下标是前缀和（即当前奇数的个数），值是前缀和的个数。
+        int[] prefixCnt = new int[nums.length + 1];
+        prefixCnt[0] = 1;
+        // 遍历原数组，计算当前的前缀和，统计到 prefixCnt 数组中，
+        // 并且在 res 中累加上与当前前缀和差值为 k 的前缀和的个数。
+        int res = 0, sum = 0;
+        for (int num: nums) {
+            sum += num & 1;
+            prefixCnt[sum]++;
+            if (sum >= k) {
+                res += prefixCnt[sum - k];
+            }
+        }
+        return res;
     }
 }
