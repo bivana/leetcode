@@ -1,6 +1,5 @@
 package com.ivan.leetcode.questions;
 
-import com.ivan.leetcode.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
 

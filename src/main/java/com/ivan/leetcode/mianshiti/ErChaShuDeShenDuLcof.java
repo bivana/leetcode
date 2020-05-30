@@ -1,10 +1,8 @@
 package com.ivan.leetcode.mianshiti;
 
-import com.ivan.leetcode.TreeNode;
+import com.ivan.leetcode.questions.TreeNode;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.LinkedList;
 
 /**
  * 面试题55 - I. 二叉树的深度

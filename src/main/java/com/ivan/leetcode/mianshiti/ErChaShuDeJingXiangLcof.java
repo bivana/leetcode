@@ -1,6 +1,6 @@
 package com.ivan.leetcode.mianshiti;
 
-import com.ivan.leetcode.TreeNode;
+import com.ivan.leetcode.questions.TreeNode;
 import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 

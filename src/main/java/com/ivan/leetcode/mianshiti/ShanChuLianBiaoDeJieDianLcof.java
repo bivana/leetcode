@@ -1,6 +1,6 @@
 package com.ivan.leetcode.mianshiti;
 
-import com.ivan.leetcode.ListNode;
+import com.ivan.leetcode.questions.ListNode;
 import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 

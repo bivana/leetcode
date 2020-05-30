@@ -1,10 +1,7 @@
 package com.ivan.leetcode.questions;
 
-import com.ivan.leetcode.TreeNode;
 import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
-
-import java.util.Stack;
 
 /**
  * 236. 二叉树的最近公共祖先
