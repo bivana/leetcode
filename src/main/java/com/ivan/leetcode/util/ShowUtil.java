@@ -1,11 +1,9 @@
 package com.ivan.leetcode.util;
 
-import com.ivan.leetcode.ListNode;
-import com.ivan.leetcode.TreeNode;
+import com.ivan.leetcode.questions.ListNode;
+import com.ivan.leetcode.questions.TreeNode;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class ShowUtil {
 

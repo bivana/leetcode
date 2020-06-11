@@ -1,6 +1,5 @@
 package com.ivan.leetcode.questions;
 
-import com.ivan.leetcode.ListNode;
 import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 

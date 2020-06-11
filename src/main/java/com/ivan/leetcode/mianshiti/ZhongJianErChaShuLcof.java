@@ -1,6 +1,6 @@
 package com.ivan.leetcode.mianshiti;
 
-import com.ivan.leetcode.TreeNode;
+import com.ivan.leetcode.questions.TreeNode;
 
 /**
  * 面试题07. 重建二叉树
