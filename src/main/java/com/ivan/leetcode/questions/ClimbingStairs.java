@@ -42,6 +42,24 @@ public class ClimbingStairs {
     Integer[] dp;
 
     /**
+     * f(1)=1
+     * f(x)=f(x-1)+f(x-2)
+     * */
+    public int climbStairs(int n) {
+        if(n==0){
+            return 0;
+        }
+        int cur=1;
+        int pre=1;
+        for(int i=2;i<=n;i++){
+            int temp=cur+pre;
+            pre=cur;
+            cur=temp;
+        }
+        return cur;
+    }
+
+    /**
      * 使用斐波那契公式
      * */
     public int climbStaritsUseFormat(int n){
@@ -50,17 +68,17 @@ public class ClimbingStairs {
         return r;
     }
 
-    public int climbStairs(int n) {
-        dp=new Integer[n];
-        if(n<=0){
-            return 0;
-        }
-        if(n==1){
-            return 1;
-        }
-        int step=subClimb(n-1)+subClimb(n-2);
-        return step;
-    }
+//    public int climbStairs(int n) {
+//        dp=new Integer[n];
+//        if(n<=0){
+//            return 0;
+//        }
+//        if(n==1){
+//            return 1;
+//        }
+//        int step=subClimb(n-1)+subClimb(n-2);
+//        return step;
+//    }
 
     private int subClimb(int n){
         if(dp[n]!=null){
