@@ -3,6 +3,8 @@ package com.ivan.leetcode.questions;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -25,25 +27,44 @@ public class DailyTemperatures {
         Assert.assertArrayEquals(new int[]{1, 1, 4, 2, 1, 1, 0, 0},dailyTemperatures(new int[]{73, 74, 75, 71, 69, 72, 76, 73}));
     }
 
-
-
     public int[] dailyTemperatures(int[] T) {
-        Stack<Integer> stack=new Stack<>();
+        if(T==null||T.length==0){
+            return T;
+        }
+        Deque<Integer> stack=new ArrayDeque<>();
         int[] rs=new int[T.length];
         for(int i=0;i<T.length;i++){
-            while (!stack.empty()){
-                int index=stack.peek();
-                if(T[i]>T[index]){
-                    rs[index]=i-index;
+            while (!stack.isEmpty()){
+                int top=stack.peek();
+                if(T[i]>T[top]){
+                    rs[top]=i-top;
                     stack.pop();
-                    continue;
+                }else{
+                    break;
                 }
-                break;
             }
             stack.push(i);
         }
         return rs;
     }
+
+//    public int[] dailyTemperatures(int[] T) {
+//        Stack<Integer> stack=new Stack<>();
+//        int[] rs=new int[T.length];
+//        for(int i=0;i<T.length;i++){
+//            while (!stack.empty()){
+//                int index=stack.peek();
+//                if(T[i]>T[index]){
+//                    rs[index]=i-index;
+//                    stack.pop();
+//                    continue;
+//                }
+//                break;
+//            }
+//            stack.push(i);
+//        }
+//        return rs;
+//    }
 
 
     /**
