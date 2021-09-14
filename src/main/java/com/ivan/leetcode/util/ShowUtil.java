@@ -43,6 +43,15 @@ public class ShowUtil {
         }
     }
 
+    public static void showCharMatrix(char[][] matrix){
+        for(char[] is:matrix){
+            for(char i:is){
+                System.out.print(i+",");
+            }
+            System.out.println();
+        }
+    }
+
     /**
      * 显示数
      * */
