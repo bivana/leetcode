@@ -23,6 +23,7 @@ public class ShowUtil {
         }
     }
 
+
     public static void showStringListMatrix(List<List<String>> list){
         for(List<String> l:list){
             for(String i:l){
@@ -31,6 +32,7 @@ public class ShowUtil {
             System.out.println();
         }
     }
+
 
 
 
@@ -74,6 +76,22 @@ public class ShowUtil {
             }
             showListNode(listNode.next);
         }
+
+    }
+
+    public static void showListNodeArray(ListNode[] listNodes){
+        System.out.println(">>>>>>>>>>>>>start show showListNodeArray");
+        for(ListNode listNode:listNodes){
+            System.out.println(">>>>>");
+            if(listNode!=null){
+                System.out.print(listNode.val);
+                if(listNode.next!=null){
+                    System.out.print("==>");
+                }
+                showListNode(listNode.next);
+            }
+        }
+
 
     }
 }
