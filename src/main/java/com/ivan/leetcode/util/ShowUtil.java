@@ -1,9 +1,11 @@
 package com.ivan.leetcode.util;
 
 import com.ivan.leetcode.questions.ListNode;
+import com.ivan.leetcode.questions.Node;
 import com.ivan.leetcode.questions.TreeNode;
 
 import java.util.List;
+import java.util.Stack;
 
 public class ShowUtil {
 
@@ -91,7 +93,31 @@ public class ShowUtil {
                 showListNode(listNode.next);
             }
         }
+    }
 
+    public static void showNode(Node rs) {
 
+        System.out.println(">>>>>>>开始展示node");
+        if(rs==null){
+            return;
+        }
+        Stack<Node> stack=new Stack<>();
+        stack.push(rs);
+        Node node;
+        StringBuffer sb=new StringBuffer();
+        while (!stack.isEmpty()){
+            node=stack.pop();
+            if(sb.length()!=0){
+                sb.append("->");
+            }
+            sb.append(node.val);
+            if(node.next!=null){
+                stack.push(node.next);
+            }
+            if(node.child!=null){
+                stack.push(node.child);
+            }
+        }
+        System.out.println(sb.toString());
     }
 }
