@@ -33,6 +33,31 @@ public class DivideTwoIntegers {
         Assert.assertEquals(-2,divide(7,-3));
     }
 
+//    /**
+//     * 备减法
+//     * */
+//    public int divide(int dividend, int divisor) {
+//        if()
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//    }
+
     /**
      * 备减法
      * */
