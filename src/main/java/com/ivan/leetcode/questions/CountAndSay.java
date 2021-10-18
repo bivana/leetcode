@@ -35,12 +35,6 @@ import org.junit.Test;
  * */
 public class CountAndSay {
 
-    @Test
-    public void test(){
-//        Assert.assertEquals("1",countAndSay(1));
-        Assert.assertEquals("1211",countAndSay(4));
-    }
-
     public String countAndSay(int n) {
         if(n==1){
             return "1";
