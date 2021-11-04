@@ -34,23 +34,60 @@ public class PlusOne {
     }
 
     public int[] plusOne(int[] digits) {
-        int plus=1;
         for(int i=digits.length-1;i>=0;i--){
-            //只有9会进位
-            if(digits[i]==9 && plus==1){
-                digits[i]=0;
-                plus=1;
-            }else{
+            if(digits[i]<9){
                 digits[i]=digits[i]+1;
-                plus=0;
                 break;
+            }else{
+                digits[i]=0;
             }
         }
-        //结果为1000...格式
-        if(plus==1){
-            digits=new int[digits.length+1];
-            digits[0]=1;
+        if(digits[0]==0){
+            int[] ans=new int[digits.length+1];
+            System.arraycopy(digits,0,ans,1,digits.length);
+            ans[0]=1;
+            digits=ans;
         }
         return digits;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public int[] plusOne(int[] digits) {
+//        int plus=1;
+//        for(int i=digits.length-1;i>=0;i--){
+//            //只有9会进位
+//            if(digits[i]==9 && plus==1){
+//                digits[i]=0;
+//                plus=1;
+//            }else{
+//                digits[i]=digits[i]+1;
+//                plus=0;
+//                break;
+//            }
+//        }
+//        //结果为1000...格式
+//        if(plus==1){
+//            digits=new int[digits.length+1];
+//            digits[0]=1;
+//        }
+//        return digits;
+//    }
 }
