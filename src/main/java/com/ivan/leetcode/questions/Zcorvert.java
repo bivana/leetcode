@@ -39,7 +39,9 @@ public class Zcorvert {
 //        Assert.assertEquals("LDREOEIIECIHNTSG",zcorvert.convert("LEETCODEISHIRING",4));
         System.out.println(zcorvert.convert("A",2));
     }
-
+    static {
+        System.out.println("ccccc");
+    }
     public String convert(String s, int numRows){
         if (numRows == 1) return s;
 

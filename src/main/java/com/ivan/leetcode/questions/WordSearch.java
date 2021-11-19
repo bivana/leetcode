@@ -24,7 +24,7 @@ import org.junit.Test;
  * 给定 word = "ABCB", 返回 false.
  * 通过次数42,319提交次数103,535
  * */
-public class WordSearch {
+public class WordSearch extends TestAbstract{
 
     @Test
     public void test(){

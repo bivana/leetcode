@@ -28,7 +28,7 @@ import java.util.List;
  * 通过次数22,627提交次数64,431
  * 在真实的面试中遇到过这道题？
  * */
-public class WaterAndJugProblem {
+public class WaterAndJugProblem extends TestAbstract{
 
     @Test
     public void test(){
