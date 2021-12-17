@@ -14,4 +14,14 @@ public class CreateUtil {
         }
         return rs;
     }
+
+    public static List<List<Integer>> createIntegerMatrix(Integer[][] matrix){
+        List<List<Integer>> rs=new ArrayList<>();
+        if(matrix!=null){
+            for(Integer[] array :matrix){
+                rs.add(Arrays.asList(array));
+            }
+        }
+        return rs;
+    }
 }
