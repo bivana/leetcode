@@ -3,7 +3,9 @@ package com.ivan.leetcode.questions;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -26,6 +28,10 @@ import java.util.Set;
  * 输出: false
  * 通过次数46,097提交次数118,518
  * 在真实的面试中遇到过这道题？
+ *
+ * 1 <= nums.length <= 105
+ * -109 <= nums[i] <= 109
+ * 0 <= k <= 105
  * */
 public class ContainsDuplicate2 {
 
@@ -36,6 +42,7 @@ public class ContainsDuplicate2 {
         Assert.assertEquals(true,containsNearbyDuplicate(new int[]{1,0,1,1},1));
         Assert.assertEquals(false,containsNearbyDuplicate(new int[]{1,2,3,1,2,3},2));
     }
+
 
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         if(nums==null||nums.length<=1){
