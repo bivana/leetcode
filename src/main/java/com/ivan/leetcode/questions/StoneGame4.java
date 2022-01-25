@@ -3,6 +3,9 @@ package com.ivan.leetcode.questions;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 2029. 石子游戏 IX
  * Alice 和 Bob 再次设计了一款新的石子游戏。现有一行 n 个石子，每个石子都有一个关联的数字表示它的价值。给你一个整数数组 stones ，其中 stones[i] 是第 i 个石子的价值。
@@ -57,8 +60,41 @@ public class StoneGame4 {
         Assert.assertEquals(false,stoneGameIX(new int[]{5,1,2,4,3}));
     }
 
-    //dp[i] 表示第i步，是否可以达到必胜状态，条件比如选择必胜状态
+    //可以对结果进行简化，对3取余，这样结果只会是 0,1,2
+    //可以对stone进行简化，对3取余，stone只会是 0,1,2 再讲0转换为3，这样结果只会是 1 2 3
+    //根据结果取map
+    //dp[i][j][k][g] 表示第g步，当余1个石头剩下i个，余2个石头剩下j个，被3整除石头剩下k个，  是否可以达到必胜状态，1 表示alice赢，-1 表示 bob赢
+
     public boolean stoneGameIX(int[] stones) {
-        dp
+        int cnt1=0;
+        int cnt2=0;
+        int cnt3=0;
+        for(int i:stones){
+            int rs=i%3;
+            switch (rs){
+                case 0 :
+                    cnt3++;
+                case 1:
+                    cnt1++;
+                case 2:
+                    cnt2++;
+            }
+        }
+        int[][][][] dp=new int[cnt1][cnt2][cnt3][2];
+        //初始化，不管谁最后一步面对没有石头，都输
+        dp[0][0][0][0]=-1;
+        dp[0][0][0][1]=-1;
+        int sum=0;
+        while (cnt1>0||cnt2>0||cnt3>0){
+            if(cnt1>0){
+
+            }
+        }
+
+        if(dp[cnt1][cnt2][cnt3][0]==1||dp[cnt1][cnt2][cnt3][1]==1){
+            return true;
+        }
+        return false;
+
     }
 }
