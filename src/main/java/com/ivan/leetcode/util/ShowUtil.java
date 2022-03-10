@@ -1,7 +1,7 @@
 package com.ivan.leetcode.util;
 
 import com.ivan.leetcode.questions.ListNode;
-import com.ivan.leetcode.questions.Node;
+import com.ivan.leetcode.com.Node;
 import com.ivan.leetcode.questions.TreeNode;
 
 import java.util.List;

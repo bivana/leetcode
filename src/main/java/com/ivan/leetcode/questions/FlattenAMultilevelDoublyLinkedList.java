@@ -1,9 +1,9 @@
 package com.ivan.leetcode.questions;
 
+import com.ivan.leetcode.com.Node;
 import com.ivan.leetcode.util.ShowUtil;
 import org.junit.Test;
 
-import java.util.List;
 import java.util.Stack;
 
 /**

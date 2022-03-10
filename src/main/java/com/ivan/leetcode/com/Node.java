@@ -1,6 +1,4 @@
-package com.ivan.leetcode.questions;
-
-import java.util.Stack;
+package com.ivan.leetcode.com;
 
 public class Node {
     public int val;
