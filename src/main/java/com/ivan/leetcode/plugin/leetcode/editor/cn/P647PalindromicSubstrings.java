@@ -39,16 +39,28 @@ public class P647PalindromicSubstrings{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
 
-    int[][] dp;
-
     public int countSubstrings(String s) {
-        dp=new int[s.length()][s.length()];
+        int ans=0;
         for(int i=0;i<s.length();i++){
-            for(int j=i;j<s.length();j++){
-
+            ans++;
+            //中心点
+            int left=i-1;
+            int right=i+1;
+            while (left>=0&&right<s.length()&&s.charAt(right)==s.charAt(left)){
+                ans++;
+                left--;
+                right++;
+            }
+            //做对称
+            left=i-1;
+            right=i;
+            while (left>=0&&right<s.length()&&s.charAt(left)==s.charAt(right)){
+                ans++;
+                left--;
+                right++;
             }
         }
-        return 0;
+        return ans;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
