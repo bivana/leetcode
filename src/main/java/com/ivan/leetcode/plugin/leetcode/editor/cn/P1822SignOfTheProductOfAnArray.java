@@ -50,6 +50,9 @@ package com.ivan.leetcode.plugin.leetcode.editor.cn;
 //
 // Related Topics 数组 数学 👍 56 👎 0
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 public class P1822SignOfTheProductOfAnArray{
 
     //leetcode submit region begin(Prohibit modification and deletion)
