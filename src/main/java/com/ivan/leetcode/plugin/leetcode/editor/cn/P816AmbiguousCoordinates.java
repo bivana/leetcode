@@ -60,6 +60,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class P816AmbiguousCoordinates{
 
@@ -68,7 +69,6 @@ public class P816AmbiguousCoordinates{
     @Test
     public void test(){
         List<String> list2=solution.getPosibleNum("000");
-
         List<String> list=solution.ambiguousCoordinates("(0123)");
 //        Assert.assertArrayEquals(new String[]{"(1, 23)", "(12, 3)", "(1.2, 3)", "(1, 2.3)"},solution.ambiguousCoordinates("(123)").toArray(new String[4]));
     }
